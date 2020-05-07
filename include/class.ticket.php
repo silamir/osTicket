@@ -444,6 +444,10 @@ implements RestrictedAccess, Threadable, Searchable {
         return $this->duedate;
     }
 
+    function getCData() {
+        return $this->cdata;
+    }
+
     function getSLADueDate($datetime=null) {
         if ($sla = $this->getSLA()) {
             $dt = new DateTime($datetime ?: $this->getReopenDate() ?: $this->getCreateDate());
@@ -4358,6 +4362,7 @@ EOF;
                 'email'=>$this->getEmail()->email,
                 'phone'=>$this->getPhoneNumber(),
             ],
+            'cdata' => $this->getCData(),
             'source' => $this->getSource(),
             'assigned_to' => $this->getAssignees(),
             'threads' =>$thread_entries
