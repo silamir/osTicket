@@ -36,9 +36,10 @@ class UserApiController extends ApiController {
         if (!filter_var($params['email'], FILTER_VALIDATE_EMAIL)) {
             return $this->exerr(400, __("Invalid email: $params[email]"));
         }
-        if(User::lookup(['emails__address'=>$params['email']])) {
-            return $this->exerr(400, __("Email $params[email] is already in use"));
-        }
+        // Commented to be able to create ticket with existing user
+        // if(User::lookup(['emails__address'=>$params['email']])) {
+        //     return $this->exerr(400, __("Email $params[email] is already in use"));
+        // }
         if(!$user=User::fromVars($params)) {
             return $this->exerr(400, __('Unknown user creation error'));
         }
