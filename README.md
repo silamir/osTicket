@@ -9,28 +9,7 @@ simple easy-to-use multi-user web interface. Manage, organize and archive
 all your support requests and responses in one place while providing your
 customers with accountability and responsiveness they deserve.
 
-How osTicket works for you
---------------------------
-  1. Users create tickets via your website, email, or phone
-  1. Incoming tickets are saved and assigned to agents
-  1. Agents help your users resolve their issues
-
-osTicket is an attractive alternative to higher-cost and complex customer
-support systems; simple, lightweight, reliable, open source, web-based and
-easy to setup and use. The best part is, it's completely free.
-
-Requirements
-------------
-  * HTTP server running Microsoft® IIS or Apache
-  * PHP version 7.0 to 7.3, 7.3 is recommended
-  * mysqli extension for PHP
-  * MySQL database version 5.5
-
-### Recommendations
-  * gd, gettext, imap, json, mbstring, and xml extensions for PHP
-  * APC module enabled and configured for PHP
-
-Deployment
+Deployment [On a server]
 ----------
 osTicket now supports bleeding-edge installations. The easiest way to
 install the software and track updates is to clone the public repository.
@@ -53,6 +32,15 @@ cloned the git repo into)
 
     git pull
     php manage.php deploy -v /var/www/htdocs/osticket/
+
+Precisions [Local environment - FR]
+----------
+
+Pour installer ce fork sur un environnement local, une serveur Apache et une base de données MySQL sont nécessaires.
+
+Un Wamp/Mamp/Lamp feront parfaitement l'affaire.
+
+Une fois le repository cloné dans www ou htdocs, il suffit d'aller sur localhost/osticket et suivre la marche à suivre proposée par OsTicket
 
 Upgrading
 ---------
