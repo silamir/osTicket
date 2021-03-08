@@ -213,16 +213,16 @@ class ApiController {
 
         if(!($key=$this->getApiKey()))
             return $this->exerr(401, __('Valid API key required'));
-        elseif (!$key->isActive() || $key->getIPAddr()!=$_SERVER['REMOTE_ADDR'])
-            return $this->exerr(401, __('API key not found/active or source IP not authorized'));
+        elseif (!$key->isActive())
+            return $this->exerr(401, __('API key not found/active'));
 
         return $key;
     }
 
     function getApiKey() {
 
-        if (!$this->apikey && isset($_SERVER['HTTP_X_API_KEY']) && isset($_SERVER['REMOTE_ADDR']))
-            $this->apikey = API::lookupByKey($_SERVER['HTTP_X_API_KEY'], $_SERVER['REMOTE_ADDR']);
+        if (!$this->apikey && isset($_SERVER['HTTP_X_API_KEY']))
+            $this->apikey = API::lookupByKey($_SERVER['HTTP_X_API_KEY']);
 
         return $this->apikey;
     }
